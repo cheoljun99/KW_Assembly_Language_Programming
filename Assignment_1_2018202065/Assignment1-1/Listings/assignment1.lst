@@ -1,0 +1,114 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             ARMex, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000         start
+    5 00000000 E3A00009        MOV              r0, #9      ; 9 is located to r
+                                                            0
+    6 00000004 E3A0100C        MOV              r1, #12     ; 12 is located to 
+                                                            r1
+    7 00000008 E3A0200A        MOV              r2, #10     ; 10 is located to 
+                                                            r2
+    8 0000000C         
+    9 0000000C E59F304C        LDR              r3, TEMPADDR1 ; memory's addres
+                                                            s that saved in TEM
+                                                            PADDR1 is located t
+                                                            o r3
+   10 00000010 E4C30001        STRB             r0, [r3], #1 ; r0's value is sa
+                                                            ved to r3's memory 
+                                                            by 1 byte unit
+   11 00000014 E4C31001        STRB             r1, [r3], #1 ; r1's value is sa
+                                                            ved to r3's memory 
+                                                            by 1 byte unit
+   12 00000018 E4C32001        STRB             r2, [r3], #1 ; r2's value is sa
+                                                            ved to r3's memory 
+                                                            by 1 byte unit
+   13 0000001C E59F303C        LDR              r3, TEMPADDR1 ; momory's addres
+                                                            s is located to r3
+   14 00000020 E4D34001        LDRB             r4, [r3], #1 ; momory's first v
+                                                            alue is saved to r4
+                                                            
+   15 00000024 E3A0600A        mov              r6, #0x0A   ; 10 is located to 
+                                                            r6
+   16 00000028 E1540006        cmp              r4,r6       ;compare(r4 - r6)
+   17 0000002C 43A05002        MOVMI            r5, #2      ; move 2 into r5 if
+                                                             r4<r6
+   18 00000030 C3A05001        MOVGT            r5, #1      ; move 1 into r5 if
+                                                             r4>r6
+   19 00000034 03A05003        MOVEQ            r5, #3      ; move 3 into r5 if
+                                                             r4=r6
+   20 00000038 E4D34001        LDRB             r4, [r3], #1 ; momory's second 
+                                                            value is saved to r
+                                                            4
+   21 0000003C E1540006        cmp              r4,r6       ;compare(r4 - r6)
+   22 00000040 43A05002        MOVMI            r5, #2      ; move 2 into r5 if
+                                                             r4<r6
+   23 00000044 C3A05001        MOVGT            r5, #1      ; move 1 into r5 if
+                                                             r4>r6
+   24 00000048 03A05003        MOVEQ            r5, #3      ; move 3 into r5 if
+                                                             r4=r6
+   25 0000004C E4D34001        LDRB             r4, [r3], #1 ; momory's second 
+                                                            value is saved to r
+                                                            4
+   26 00000050 E1540006        cmp              r4,r6       ;compare(r4 - r6)
+   27 00000054 43A05002        MOVMI            r5, #2      ; move 2 into r5 if
+                                                             r4<r6
+   28 00000058 C3A05001        MOVGT            r5, #1      ; move 1 into r5 if
+                                                             r4>r6
+   29 0000005C 03A05003        MOVEQ            r5, #3      ; move 3 into r5 if
+                                                             r4=r6
+   30 00000060         
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+   31 00000060 40000000 
+                       TEMPADDR1
+                               &                &40000000   ; 0x40000000 is sav
+                                                            ed to TEMPADDR1
+   32 00000064 E1A0F00E        MOV              pc,lr
+   33 00000068                 END                          ; Mark end of file
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM9E --apcs=interwork 
+--depend=.\objects\assignment1.d -o.\objects\assignment1.o -IC:\Keil_v5\ARM\RV3
+1\INC -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --predefine="_
+_UVISION_VERSION SETA 528" --list=.\listings\assignment1.lst Assignment1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ARMex 00000000
+
+Symbol: ARMex
+   Definitions
+      At line 1 in file Assignment1.s
+   Uses
+      None
+Comment: ARMex unused
+TEMPADDR1 00000060
+
+Symbol: TEMPADDR1
+   Definitions
+      At line 31 in file Assignment1.s
+   Uses
+      At line 9 in file Assignment1.s
+      At line 13 in file Assignment1.s
+
+start 00000000
+
+Symbol: start
+   Definitions
+      At line 4 in file Assignment1.s
+   Uses
+      None
+Comment: start unused
+3 symbols
+335 symbols in table

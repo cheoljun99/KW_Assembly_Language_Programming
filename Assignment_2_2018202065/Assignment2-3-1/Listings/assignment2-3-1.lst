@@ -1,0 +1,127 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             ARMex, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000         Main
+    5 00000000 E59F8044        LDR              r8, Addressl ;saving 0x40000000
+                                                             to r8
+    6 00000004 E3A00001        MOV              r0, #1      ; r0=1; 1 is locate
+                                                            d to r0 
+    7 00000008 E1A01080        MOV              r1, r0, LSL #1 ; r1=2 2 is loca
+                                                            ted to r1 using LSL
+                                                             operator 
+    8 0000000C E1A02081        MOV              r2, r1, LSL #1 ; r2=4 4 is loca
+                                                            ted to r2 using LSL
+                                                             operator
+    9 00000010 E1A03082        MOV              r3, r2, LSL #1 ; r3=8 8 is loca
+                                                            ted to r3 using LSL
+                                                             operator
+   10 00000014 E1A04083        MOV              r4, r3, LSL #1 ; r4=16 16 is lo
+                                                            cated to r4 using L
+                                                            SL operator 
+   11 00000018 E0815003        ADD              r5,r1,r3    ; r5=10 10 is locat
+                                                            ed to r5 using ADD 
+                                                            operator
+   12 0000001C E0855000        ADD              r5,r5,r0    ; r5=11 11 is locat
+                                                            ed to r5 using ADD 
+                                                            operator
+   13 00000020 E0846005        ADD              r6,r4,r5    ; r6=27 27 is locat
+                                                            ed to r6 using ADD 
+                                                            operator
+   14 00000024 E0866001        ADD              r6,r6,r1    ; r6=29 29 is locat
+                                                            ed to r6 using ADD 
+                                                            operator
+   15 00000028 E1A0A005        MOV              r10, r5     ; r5's value is loc
+                                                            ated to r10
+   16 0000002C         
+   17 0000002C         Loop
+   18 0000002C E0859001        ADD              r9,r5,r1    ; r5's value is inc
+                                                            reased by 2 and sav
+                                                            ed to r9 
+   19 00000030 E08AA009        ADD              r10,r10,r9  ; r10 is added by r
+                                                            9 and saved to ones
+                                                            elf
+   20 00000034 E1A05009        MOV              r5,r9       ; r5 is changed to 
+                                                            r9 because for the 
+                                                            next calculation 
+   21 00000038 E1590006        CMP              r9,r6       ; if r9 is 29, end 
+                                                            Loop
+   22 0000003C 0A000000        BEQ              Equal       ; if CMP is same, g
+                                                            o to Equal
+   23 00000040 EAFFFFF9        B                Loop        ; if CMP is not sam
+                                                            e, go to Equal
+   24 00000044         
+   25 00000044         Equal
+   26 00000044 E588A000        STR              r10,[r8]    ;saving r10's value
+                                                             to memory 
+   27 00000048 E1A0F00E        MOV              pc,lr
+   28 0000004C         
+   29 0000004C 40000000 
+                       Addressl
+
+
+
+ARM Macro Assembler    Page 2 
+
+
+                               DCD              &40000000   ; 0x40000000 is sav
+                                                            ed to Addressl
+   30 00000050                 END                          ; Mark end of file
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM9E --apcs=interwork 
+--depend=.\objects\assignment2-3-1.d -o.\objects\assignment2-3-1.o -IC:\Keil_v5
+\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --pred
+efine="__UVISION_VERSION SETA 528" --list=.\listings\assignment2-3-1.lst Assign
+ment2-3-1.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ARMex 00000000
+
+Symbol: ARMex
+   Definitions
+      At line 1 in file Assignment2-3-1.s
+   Uses
+      None
+Comment: ARMex unused
+Addressl 0000004C
+
+Symbol: Addressl
+   Definitions
+      At line 29 in file Assignment2-3-1.s
+   Uses
+      At line 5 in file Assignment2-3-1.s
+Comment: Addressl used once
+Equal 00000044
+
+Symbol: Equal
+   Definitions
+      At line 25 in file Assignment2-3-1.s
+   Uses
+      At line 22 in file Assignment2-3-1.s
+Comment: Equal used once
+Loop 0000002C
+
+Symbol: Loop
+   Definitions
+      At line 17 in file Assignment2-3-1.s
+   Uses
+      At line 23 in file Assignment2-3-1.s
+Comment: Loop used once
+Main 00000000
+
+Symbol: Main
+   Definitions
+      At line 4 in file Assignment2-3-1.s
+   Uses
+      None
+Comment: Main unused
+5 symbols
+337 symbols in table

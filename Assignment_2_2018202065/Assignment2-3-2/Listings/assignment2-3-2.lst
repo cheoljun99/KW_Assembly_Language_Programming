@@ -1,0 +1,83 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             ARMex, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000         Main
+    5 00000000 E59F801C        LDR              r8, Addressl ;saving 0x40000000
+                                                             to r8
+    6 00000004 E3A00001        MOV              r0, #1      ; r0=1 1 is located
+                                                             to r0 
+    7 00000008 E1A01080        MOV              r1, r0, LSL #1 ;r1=2 2 is locat
+                                                            ed to r1 using LSL 
+                                                            operator 
+    8 0000000C E1A02081        MOV              r2, r1, LSL #1 ; r2=4 4 is loca
+                                                            ted to r2 using LSL
+                                                             operator
+    9 00000010 E1A03082        MOV              r3, r2, LSL #1 ; r3=8 8 is loca
+                                                            ted to r3 using LSL
+                                                             operator
+   10 00000014 E0815003        ADD              r5,r1,r3    ; r5=10 10 is locat
+                                                            ed to r5 using ADD 
+                                                            operator
+   11 00000018         
+   12 00000018 E0856005        ADD              r6,r5,r5    ; r6=20 20 is locat
+                                                            ed to r6 using ADD 
+                                                            operator. it is (n+
+                                                            10)
+   13 0000001C E0070596        MUL              r7,r6,r5    ; r7=200 200 is loc
+                                                            ated to r7 using MU
+                                                            L opearator. it is 
+                                                            n(n+10)
+   14 00000020         
+   15 00000020 E5887000        STR              r7,[r8]     ;saving r7's value 
+                                                            to memory 
+   16 00000024         
+   17 00000024         
+   18 00000024 40000000 
+                       Addressl
+                               DCD              &40000000   ; 0x40000000 is sav
+                                                            ed to Addressl
+   19 00000028 E1A0F00E        MOV              pc,lr
+   20 0000002C                 END                          ; Mark end of file
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM9E --apcs=interwork 
+--depend=.\objects\assignment2-3-2.d -o.\objects\assignment2-3-2.o -IC:\Keil_v5
+\ARM\RV31\INC -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --pred
+efine="__UVISION_VERSION SETA 528" --list=.\listings\assignment2-3-2.lst Assign
+ment2-3-2.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ARMex 00000000
+
+Symbol: ARMex
+   Definitions
+      At line 1 in file Assignment2-3-2.s
+   Uses
+      None
+Comment: ARMex unused
+Addressl 00000024
+
+Symbol: Addressl
+   Definitions
+      At line 18 in file Assignment2-3-2.s
+   Uses
+      At line 5 in file Assignment2-3-2.s
+Comment: Addressl used once
+Main 00000000
+
+Symbol: Main
+   Definitions
+      At line 4 in file Assignment2-3-2.s
+   Uses
+      None
+Comment: Main unused
+3 symbols
+335 symbols in table

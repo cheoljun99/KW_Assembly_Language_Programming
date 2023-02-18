@@ -1,0 +1,2 @@
+Dependencies for Project 'Assignment3-1', Target 'Target 1': (DO NOT MODIFY !)
+F (.\Assignment3-1.s)(0x5D92D27E)(--cpu ARM9E --pd "__EVAL SETA 1" -g --apcs=interwork -IC:\Keil_v5\ARM\RV31\INC-IC:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 528"--list .\listings\assignment3-1.lst --xref -o .\objects\assignment3-1.o --depend .\objects\assignment3-1.d)

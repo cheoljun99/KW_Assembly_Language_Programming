@@ -1,0 +1,104 @@
+
+
+
+ARM Macro Assembler    Page 1 
+
+
+    1 00000000                 AREA             ARMex, CODE, READONLY
+    2 00000000                 ENTRY
+    3 00000000         
+    4 00000000         Main
+    5 00000000 E59F002C        LDR              r0, =C_string1 ;saving "Hello",
+                                                            0's address
+    6 00000004 E59F2024        LDR              r2, Addressl
+    7 00000008         
+    8 00000008         Loop
+    9 00000008 E4D01001        LDRB             r1,[r0],#1  ;saving one word fr
+                                                            om Array
+   10 0000000C E4C21001        STRB             r1,[r2],#1  ;saving one word to
+                                                             memory
+   11 00000010 E3510000        cmp              r1,#0       ;checking NULL 
+   12 00000014 0A000000        beq              Endline     ;if find null, go t
+                                                            o Endline branch
+   13 00000018 1AFFFFFA        bne              Loop        ; if is not null, g
+                                                            o to Loop branch fo
+                                                            r looping
+   14 0000001C         
+   15 0000001C         Endline
+   16 0000001C E1A0F00E        MOV              pc,lr
+   17 00000020 48 65 6C 
+              6C 6F 20 
+              77 6F 72 
+              6C 64 20 
+              21 21 21 
+              00       C_string1
+                               DCB              "Hello world !!!",0 ;saving "He
+                                                            llo",0 to C_string1
+                                                            
+   18 00000030         
+   19 00000030 40000000 
+                       Addressl
+                               DCD              &40000000   ; 0x40000000 is sav
+                                                            ed to Addressl
+   20 00000034                 END                          ; Mark end of file
+              00000000 
+Command Line: --debug --xref --diag_suppress=9931 --cpu=ARM9E --apcs=interwork 
+--depend=.\objects\assignment6.d -o.\objects\assignment6.o -IC:\Keil_v5\ARM\RV3
+1\INC -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__EVAL SETA 1" --predefine="_
+_UVISION_VERSION SETA 528" --list=.\listings\assignment6.lst Assignment6.s
+
+
+
+ARM Macro Assembler    Page 1 Alphabetic symbol ordering
+Relocatable symbols
+
+ARMex 00000000
+
+Symbol: ARMex
+   Definitions
+      At line 1 in file Assignment6.s
+   Uses
+      None
+Comment: ARMex unused
+Addressl 00000030
+
+Symbol: Addressl
+   Definitions
+      At line 19 in file Assignment6.s
+   Uses
+      At line 6 in file Assignment6.s
+Comment: Addressl used once
+C_string1 00000020
+
+Symbol: C_string1
+   Definitions
+      At line 17 in file Assignment6.s
+   Uses
+      At line 5 in file Assignment6.s
+Comment: C_string1 used once
+Endline 0000001C
+
+Symbol: Endline
+   Definitions
+      At line 15 in file Assignment6.s
+   Uses
+      At line 12 in file Assignment6.s
+Comment: Endline used once
+Loop 00000008
+
+Symbol: Loop
+   Definitions
+      At line 8 in file Assignment6.s
+   Uses
+      At line 13 in file Assignment6.s
+Comment: Loop used once
+Main 00000000
+
+Symbol: Main
+   Definitions
+      At line 4 in file Assignment6.s
+   Uses
+      None
+Comment: Main unused
+6 symbols
+340 symbols in table
